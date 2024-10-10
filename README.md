@@ -1,2 +1,2 @@
 # Community_analysis
-Clustering analyses and supplementary analyses
+Clustering and supplementary analyses
