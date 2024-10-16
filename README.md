@@ -4,6 +4,7 @@ Clustering and supplementary analyses
 # Main scripts:
 *dg_walktrap_ER.R* Takes trimmed data from RedCap and computes Walktrap clustering analysis to determine clusters in the data. Optimizes the modularity result by selecting the number of random steps that yields the highest modularity. Lastly, plots and saves results.
 <br />
+<br />
     Based on Mackenzie's Walktrap_ExampleCode_MEM.R
 <br />
     Needs *dg_determine_groups.R* in the same directory.
