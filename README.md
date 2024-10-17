@@ -9,7 +9,7 @@ Clustering and supplementary analyses
     Needs *dg_determine_groups.R* in the same directory.
 <br />
 <br />
-*dg_itemlevel_data_converter_ER.R* Given an Excel with labels document downloaded from RedCap, it processes the data, and recodes all the items of several subscores by finding the least common multiple (LCM). The script can handle any range of item-level data and number of subscores. Lastly, it saves the rescaled data in a .rds file.
+*dg_itemlevel_data_converter_ER.R* Given an Excel with labels document downloaded from RedCap, it processes the data, and recodes all the items of several subscores by finding the least common multiple (LCM). The script can handle any range of item-level data and number of subscores. Lastly, it saves the rescaled data in a .rds file. *Note:* For now, the script works for 2 clusters, but contact David to make it work for any number of clusters.
 
 # Supplementary scripts:
 *dg_trim_clinicaldata.R* The script cleans and organizes the data collected with 3 surveys used in the BrainMAP study.
@@ -20,4 +20,6 @@ Clustering and supplementary analyses
 <br />
 *dg_MWUtest_afterWalktrap.R* The script compares 2 clusters of BrainMAP participants (either ADHD only or ADHD plus TD) using a Wilcoxon rank sum test, equivalent to Mann-Whitney U test. Lastly, it makes violin plots to optionally check for the data distribution. Used for preliminary results.
 <br />
-Needs *dg_determine_groups.R* and *dg_trim_clinicaldata.R*. ¡¡It also needs the converted/rescaled data with *dg_itemlevel_data_converter_ER.R*!!
+Needs *dg_determine_groups.R* and *dg_trim_clinicaldata.R*. 
+<br />
+¡¡It also needs the converted/rescaled data with *dg_itemlevel_data_converter_ER.R*!!
