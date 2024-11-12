@@ -24,7 +24,7 @@ if(selection == 1){
   data_ids <- data[ ,1]
   # specify ADHDs with an "a" label
   ADHDs <- as.character(ADHDs)        # convert to character type/class
-  data_ids <- as.character(data_ids)  # convert to character type/class, temporarily
+  data_ids <- t(data_ids)             # transpose data_ids and make it char type
   common_elements <- data_ids %in% ADHDs
   data_ids[common_elements] <- paste0("a", data_ids[common_elements]) # prepend "a" label
 } else if(selection == 2) {
@@ -50,7 +50,6 @@ data <- data[-1, ]
 
 # reconvert data_ids to frame type/class
 data_ids <- data.frame(data_ids)
-data_ids <- t(data_ids) # transpose data_ids only, to assign ids correctly later
 
 # bring IDs as the columns names!
 colnames(data) <- data_ids
