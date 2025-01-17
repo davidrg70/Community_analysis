@@ -15,7 +15,10 @@ Clustering and supplementary analyses
 *dg_trim_clinicaldata.R* The script cleans and organizes the data collected with 3 surveys used in the BrainMAP study.
 <br />
 <br />
-*dg_determine_groups.R* The script reads the frequently updated "Demographics Form.csv" BrainMAP document and provides a list of participants regarded as with ADHD or as TD. The Demographics Form.csv is found in SharePoint: cohenlabteam/Documents/Research Studies/ADHD BrainMAP/Data/
+*dg_determine_age.R* The script runs *dg_trim_clinicaldata.R* and reads the frequently updated "Demographics Form.csv" BrainMAP document to organize the surveys' timestamps, dates of birth, and calculate age per subject.
+<br />
+<br />
+*dg_determine_groups.R* The script reads the "Demographics Form.csv" document and provides a list of participants regarded as with ADHD or as TD. The Demographics Form.csv is found in SharePoint: cohenlabteam/Documents/Research Studies/ADHD BrainMAP/Data/
 <br />
 <br />
 *dg_MWUtest_afterWalktrap.R* The script compares 2 clusters of BrainMAP participants (either ADHD only or ADHD plus TD) using a Wilcoxon rank sum test, equivalent to Mann-Whitney U test. Lastly, it makes violin plots to optionally check for the data distribution. Used for preliminary results.
