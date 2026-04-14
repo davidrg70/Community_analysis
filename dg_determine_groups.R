@@ -1,10 +1,13 @@
 ### dg_determine_groups ###
-# David Garnica, UNC, September 2024
+# David Garnica, UNC, September 2024, Updated February 2025
 
 directory <- "/users/d/g/dga/BrainMAP/"
 setwd(directory)
+# The Demographics Form.csv is found in SharePoint: cohenlabteam/Documents/Research Studies/ADHD BrainMAP/Data/Demographics Form.csv
 ids_data <- read.csv("Demographics Form.csv")
-data <- readRDS("Rescaled_RC_data_2024-10-11.rds")
+directory <- "/users/d/g/dga/BrainMAP/EF_data3/EF_clustering/"
+setwd(directory)
+data <- readRDS("Rescaled_EF_data_2026-04-14.rds")
 
 # Subjects diagnosed with ADHD:
 adhd_sub_ids <- ids_data$sub_id[ids_data$adhd_diag == "ADHD"]
