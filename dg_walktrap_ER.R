@@ -1,6 +1,6 @@
 ### dg_Walktrap_ER ###
 # David Garnica, UNC, September 2024, Updated Feb 2025, April 2026
-# Run Walktrap community analysis. Based on Mackenzie's Walktrap_ExampleCode_MEM.R
+# Run Walktrap community analysis. Partially based on Mackenzie's Walktrap_ExampleCode_MEM.R
 
 ### dg_Walktrap_EF ###
 # David Garnica, UNC, February 2025
@@ -152,12 +152,36 @@ net_plot <- intergraph::asNetwork(net_allsubs)
 # 4. Layout
 set.seed(123)
 xy <- sna::gplot.layout.fruchtermanreingold(net_plot, NULL)
+# determine how many communities were found
+cluster_ids <- sort(unique(as.character(membership(cluster_allsubs))))
+n_clusters <- length(cluster_ids)
+# define up to 6 cluster colors manually
+cluster_palette_master <- c(
+  "1" = "#E76F51",
+  "2" = "#2A9D8F",
+  "3" = "#3A86FF",
+  "4" = "#8338EC",
+  "5" = "#FFBE0B",
+  "6" = "#FB5607"
+)
+# stop if more than 6 communities are found
+if (n_clusters > length(cluster_palette_master)) {
+  stop(paste(
+    "The current palette supports up to",
+    length(cluster_palette_master),
+    "communities, but",
+    n_clusters,
+    "were found. Add more colors to cluster_palette_master."
+  ))
+}
+# use only the colors needed for the detected communities
+cluster_palette_use <- cluster_palette_master[cluster_ids]
 # 5. ggnet2 plot
 p <- ggnet2(
   net_plot,
   mode = xy,
   color = "walktrap_cluster",
-  palette = c("1" = "#E76F51", "2" = "#2A9D8F"),  # ← custom colors
+  palette = cluster_palette_use,
   shape = "diagnosis",
   size = "strength",
   edge.size = 0.4,
@@ -166,14 +190,14 @@ p <- ggnet2(
   label = FALSE,
   legend.position = "right"
 ) +
-  guides(size = "none") +   # ← hides ONLY size legend
+  guides(size = "none") +
   ggtitle("Walktrap communities of EF subject-similarity network") +
   theme_void() +
   theme(
     plot.title = element_text(hjust = 0.5)
   )
 print(p)
-
+                 
 # count members of cluster_allsubs (frequencies)
 if(selection == 1){
   count_ones = sum(cluster_allsubs$membership == 1)
